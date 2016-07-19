@@ -27,7 +27,7 @@ public class scene extends Application {
 		if (b.im == 0) {
 			return;
 		}
-		
+
 		b.vel = b.vel.add(((b.force.mult(b.im)).add(new Vector(0, gravity))).mult(dt / 2));
 		b.angularVel += b.torque * b.iI * (dt / 2);
 	}
@@ -62,7 +62,6 @@ public class scene extends Application {
 		Body b;
 		for (int i = 0; i < bodies.size(); i++) {
 			a = bodies.get(i);
-			//System.out.println(a);
 
 			for (int j = i + 1; j < bodies.size(); j++) {
 				b = bodies.get(j);
@@ -71,9 +70,6 @@ public class scene extends Application {
 				}
 				Manifold m = new Manifold(a, b);
 				m.solve();
-				//				if (m.contact_count == 0) {
-				//					contacts.
-				//				}
 				contacts.add(m);
 			}
 		}
@@ -121,14 +117,14 @@ public class scene extends Application {
 		}
 
 		update = new Timeline(new KeyFrame(
-				Duration.millis(10),
-				ae -> step()));
+			Duration.millis(10),
+			ae -> step()));
 		update.setCycleCount(Animation.INDEFINITE);
 		update.play();
 
 		mousePress = new Timeline(new KeyFrame(
-				Duration.millis(1000),
-				ae -> drawCircle(root, mouseX, mouseY)));
+			Duration.millis(1000),
+			ae -> drawCircle(root, mouseX, mouseY)));
 		mousePress.setCycleCount(Animation.INDEFINITE);
 
 		scene.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
