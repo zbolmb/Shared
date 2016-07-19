@@ -1,0 +1,17 @@
+.Scene {
+	-fx-font-family: Courier;
+	-fx-color: blue;
+}
+
+.startScreenScene .startScreenLayout .text {
+	-fx-font-family: Courier;
+	-fx-color: blue;
+}
+
+#title {
+	color: blue;
+}
+
+.gridPane {
+	-fx-background-color: blue;
+}
